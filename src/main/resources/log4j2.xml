@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<Properties>
+<!-- here logs is the package name of the logs present in project source -->
+
+<Property name="basePath">./logs</Property>
+</Properties>
+  <Appenders>
+  <!-- here prints.log is the name of the log file  -->
+  <RollingFile name="File" fileName="${basePath}/prints.log" filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
+     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <SizeBasedTriggeringPolicy size="500" /> <!-- here Size 500 is the total size of the log file, 
+      once the log file exceeds 500kb it will generate a new log file -->
+          </RollingFile>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+  <Logger name="alpha.demo" level="trace" additivity="false">
+      <AppenderRef ref="File"/> <!-- here ref = file is the log file name which we created in upperside -->
+    </Logger>
+   <Root level="trace"> <!-- Here root level means, if we dont have any loggers or appendes this will take common for all -->
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+</Configuration>

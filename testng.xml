@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--TO run all the tests in parallel we use below code      !-->
+<suite name="Suite" parallel="tests">
+	<test name="validating the navigation page">
+		<classes>
+			<class name="LatestE2EFramework.Krish.AssertValidation" />
+
+		</classes>
+	</test>
+	<test name="validing the users">
+		<classes>
+			<class name="LatestE2EFramework.Krish.HomePage" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
